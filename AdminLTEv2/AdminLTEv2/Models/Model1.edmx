@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MetalprenBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="sp_MenuesxUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigoUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_SubMenuesxUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigoUsuario" Type="int" Mode="In" />
+          <Parameter Name="padre" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="MetalprenBDModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MetalprenBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MetalprenBDEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_MenuesxUsuario" ReturnType="Collection(MetalprenBDModel.sp_MenuesxUsuario_Result)">
+            <Parameter Name="codigoUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SubMenuesxUsuario" ReturnType="Collection(MetalprenBDModel.sp_SubMenuesxUsuario_Result)">
+            <Parameter Name="codigoUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="padre" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_MenuesxUsuario_Result">
+          <Property Type="Int32" Name="MenuId" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Controlador" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Accion" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Nivel" Nullable="true" />
+          <Property Type="Decimal" Name="orden" Nullable="true" Precision="5" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="sp_SubMenuesxUsuario_Result">
+          <Property Type="Int32" Name="MenuId" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Controlador" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Accion" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Nivel" Nullable="true" />
+          <Property Type="Decimal" Name="orden" Nullable="true" Precision="5" Scale="2" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MetalprenBDModelStoreContainer" CdmEntityContainer="MetalprenBDEntities" >
+          <FunctionImportMapping FunctionImportName="sp_MenuesxUsuario" FunctionName="MetalprenBDModel.Store.sp_MenuesxUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MetalprenBDModel.sp_MenuesxUsuario_Result">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_SubMenuesxUsuario" FunctionName="MetalprenBDModel.Store.sp_SubMenuesxUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MetalprenBDModel.sp_SubMenuesxUsuario_Result">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
