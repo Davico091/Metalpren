@@ -15,6 +15,8 @@ namespace AdminLTEv2.Controllers
         {
             return View();
         }
+
+        [HttpPost]
         public ActionResult IniciarSesion(Usuario objUsuario)
         {
             MetalprenBDEntities mydb = new MetalprenBDEntities();
