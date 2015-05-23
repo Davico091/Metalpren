@@ -1,0 +1,12 @@
+﻿@model IEnumerable<AdminLTEv2.Models.Usuario>
+@{
+    WebGrid wg = new WebGrid(Model, ajaxUpdateContainerId: "ajaxcon");
+}
+<p>
+
+    @ViewBag.mensaje;
+    <div id="ajaxcon">
+            @wg.GetHtml()
+    </div>
+    
+</p>    

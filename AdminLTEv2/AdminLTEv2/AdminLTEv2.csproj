@@ -1250,6 +1250,7 @@
     <Content Include="Views\Seguridad\Index.cshtml" />
     <Content Include="Views\Seguridad\IniciarSesion.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\_midiv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

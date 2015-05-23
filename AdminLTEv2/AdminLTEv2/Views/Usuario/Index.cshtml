@@ -3,3 +3,11 @@
 }
 
 <h2>Usuarios</h2>
+@Ajax.ActionLink("ejemplo ajax",
+                "metodoAjax",
+                new AjaxOptions { 
+                    HttpMethod = "POST",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId="midiv"
+                })
+<div id="midiv">este se remplaza</div> 
